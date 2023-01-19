@@ -3,7 +3,10 @@ const jobRole = document.getElementById('other-job-role');
 const title = document.getElementById('title');
 const color = document.getElementById('color');
 const design = document.getElementById('design');
-// const coloredShirts = color.getAttribute('color');
+const option = document.querySelectorAll('option');
+// console.log(option);
+// console.log(color);
+
 
 nameField.focus();
 jobRole.style.display = 'none';
@@ -19,8 +22,21 @@ color.disabled = true;
 design.addEventListener('change', () => {
     color.disabled = false;
     if (design.value === 'js puns') {
-        console.log('js puns');
-        let coloredShirts = color.getAttribute('data-theme');
-        console.log(coloredShirts);
+        for (let i = 0; i < option.length; i++) {
+            let jspunsOption = option[i].getAttribute('data-theme');
+            if (jspunsOption === 'heart js') {
+                option[i].remove();
+            }
+        }
     }
+
+    if (design.value === 'heart js') {
+        for (let i = 0; i < option.length; i++) {
+            let heartjsOption = option[i].getAttribute('data-theme');
+            if (heartjsOption === 'js puns') {
+                option[i].remove();
+            }
+        }
+    }
+
 });
