@@ -21,20 +21,34 @@ title.addEventListener('change', () => {
 color.disabled = true;
 design.addEventListener('change', () => {
     color.disabled = false;
+
     if (design.value === 'js puns') {
         for (let i = 0; i < option.length; i++) {
+            option[i].style.display = 'block';
+            let selectedHidden = option[i].getAttribute('selected hidden');
+            // console.log(selectedHidden[i]);
             let jspunsOption = option[i].getAttribute('data-theme');
+            console.log(jspunsOption);
+            console.log(selectedHidden);
             if (jspunsOption === 'heart js') {
-                option[i].remove();
+                console.log(option[i]);
+                // selectedHidden.style.display = 'none';
+                option[i].style.display = 'block';
+                option[i].style.display = 'none';
             }
+
         }
     }
 
+
     if (design.value === 'heart js') {
         for (let i = 0; i < option.length; i++) {
+            option[i].style.display = 'block';
             let heartjsOption = option[i].getAttribute('data-theme');
             if (heartjsOption === 'js puns') {
-                option[i].remove();
+                option[i].style.display = 'block';
+                option[i].style.display = 'none';
+
             }
         }
     }
