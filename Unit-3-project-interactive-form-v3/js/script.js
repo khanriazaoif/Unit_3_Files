@@ -21,19 +21,18 @@ title.addEventListener('change', () => {
 color.disabled = true;
 design.addEventListener('change', () => {
     color.disabled = false;
-
+    let selectedHidden = color.firstElementChild;
     if (design.value === 'js puns') {
         for (let i = 0; i < option.length; i++) {
             option[i].style.display = 'block';
-            let selectedHidden = option[i].getAttribute('selected hidden');
+            let selectedHidden = color.firstElementChild;
             // console.log(selectedHidden[i]);
             let jspunsOption = option[i].getAttribute('data-theme');
             console.log(jspunsOption);
             console.log(selectedHidden);
             if (jspunsOption === 'heart js') {
                 console.log(option[i]);
-                // selectedHidden.style.display = 'none';
-                option[i].style.display = 'block';
+                selectedHidden.style.display = 'none';
                 option[i].style.display = 'none';
             }
 
@@ -41,12 +40,13 @@ design.addEventListener('change', () => {
     }
 
 
+
     if (design.value === 'heart js') {
         for (let i = 0; i < option.length; i++) {
             option[i].style.display = 'block';
             let heartjsOption = option[i].getAttribute('data-theme');
             if (heartjsOption === 'js puns') {
-                option[i].style.display = 'block';
+                selectedHidden.style.display = 'none';
                 option[i].style.display = 'none';
 
             }
