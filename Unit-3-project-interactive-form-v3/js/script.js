@@ -4,6 +4,8 @@ const title = document.getElementById('title');
 const color = document.getElementById('color');
 const design = document.getElementById('design');
 const option = document.querySelectorAll('option');
+const activities = document.getElementById('activities');
+console.log(activities);
 // console.log(option);
 // console.log(color);
 
