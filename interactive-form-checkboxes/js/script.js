@@ -7,6 +7,7 @@
 
 "use strict";
 
+// test
 
 /***
  * Once loaded in the browser, you'll see two lists of checkboxes on the page
@@ -31,10 +32,10 @@ document.querySelector('.super-stats').addEventListener('change', e => {
 
     // 1) Create a variable named clicked to store the checkbox input that was just clicked
     //    - `e.target` will be helpful here
-
+    const clicked = e.target;
     // 2) Create a variable named clickedType to store the `data-type` attribute of the checkbox that was just clicked
     //    - the `getAttribute` method will be helpful here
-
+    const clickedType = checkboxes.get
     // 3) Log out the two variables you just created to confirm their values
 
     // 4) Loop over the checkbox input elements
