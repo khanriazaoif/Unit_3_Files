@@ -33,33 +33,49 @@ document.querySelector('.super-stats').addEventListener('change', e => {
     // 1) Create a variable named clicked to store the checkbox input that was just clicked
     //    - `e.target` will be helpful here
     const clicked = e.target;
-    console.log(clicked);
+
     // 2) Create a variable named clickedType to store the `data-type` attribute of the checkbox that was just clicked
     //    - the `getAttribute` method will be helpful here
     let clickedType = clicked.getAttribute('data-type');
-    console.log(clickedType);
-    // const clickedType = checkboxes.g
+
     // 3) Log out the two variables you just created to confirm their values
 
+    console.log(clicked);
     // 4) Loop over the checkbox input elements
-    // 5) In the loop, create a variable named `checkboxType` to store the `data-type` attribute of the `checkboxes[i]` in the loop's current iteration = `checkboxes[i].getAttribute('data-type');`
+    for (let i = 0; i < checkboxes.length; i++) {
 
-    // 6) Create an `if` statement to check which items to disable/enable.  The if statement needs two conditions: 
-    //    - We only want to disable/enable the item if it has the same 'data-ype' as the item that was checked/unchecked, 
-    //    - So check if the checkboxType and the clickedType variables equal
-    //    AND
-    //    - We don't want to disable/enable the checkbox that was just clicked
-    //    - So check that the clicked checkbox is not the checkbox in the loop's current iteration
-    //    - These two conditions will look something like this - `(clickedType === checkboxType && clicked !== checkboxes[i])`
+        // 5) In the loop, create a variable named `checkboxType` to store the `data-type` attribute of the `checkboxes[i]` in the loop's current iteration = `checkboxes[i].getAttribute('data-type');`
+        let checkboxType = checkboxes[i].getAttribute('data-type');
+        console.log(checkboxType);
+        // 6) Create an `if` statement to check which items to disable/enable.  The if statement needs two conditions:
+        //    - We only want to disable/enable the item if it has the same 'data-ype' as the item that was checked/unchecked,
+        if (clickedType === checkboxType && clicked !== checkboxes[i]) {
+            console.log('yes');
+            if (clicked.checked) {
+                checkboxes[i].disabled = true;
+            } else {
+                checkboxes[i].disabled = false;
+            }
 
-    // 7) In the `if` statement, create an `if/else` statement to check if the clicked checkbox is checked or unchecked
-    //    - That condition will look something like this - `(clicked.checked)`;
+            //    - So check if the checkboxType and the clickedType variables equal
+            //    AND
+            //    - We don't want to disable/enable the checkbox that was just clicked
+            //    - So check that the clicked checkbox is not the checkbox in the loop's current iteration
+            //    - These two conditions will look something like this - `(clickedType === checkboxType && clicked !== checkboxes[i])`
+
+            // 7) In the `if` statement, create an `if/else` statement to check if the clicked checkbox is checked or unchecked
+            //    - That condition will look something like this - `(clicked.checked)`;
+
+
+        }
+    }
+
     // 8) If the `clicked` checkbox is `checked`, use dot notation to set the `disabled` property of `checkboxes[i]` to true
     // 9) Else, set the `disabled` property of `checkboxes[i]` to false
 
 
     /* Helpful log statement to test that the listener is working - feel free to delete this or comment it out */
-    console.log("The checkboxes' change event listener is functional!");
+    // console.log("The checkboxes' change event listener is functional!");
 
     // Don't touch ↓↓↓ Handles disabled styles for checkbox parent labels
     [...checkboxes].forEach(cb => (cb.disabled) ? cb.parentElement.classList.add('disabled') : cb.parentElement.classList.remove('disabled'));
