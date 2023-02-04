@@ -5,7 +5,7 @@ const color = document.getElementById('color');
 const design = document.getElementById('design');
 const option = document.querySelectorAll('option');
 const activities = document.getElementById('activities');
-console.log(activities);
+// console.log(activities);
 // console.log(option);
 // console.log(color);
 
@@ -61,6 +61,34 @@ design.addEventListener('change', () => {
                 selectTheme.style.display = 'none';
                 option[i].style.display = 'none';
 
+            }
+        }
+    }
+
+});
+
+
+const checkboxes = document.querySelectorAll('.activities input');
+// console.log(checkboxes);
+
+
+document.querySelector('.activities').addEventListener('change', e => {
+    const clicked = e.target;
+    let clickedType = clicked.getAttribute('data-cost');
+    // console.log(clickedType);
+    for (let i = 0; i < checkboxes.length; i++) {
+        let checkboxType = checkboxes[i].getAttribute('data-cost');
+        if (clickedType === checkboxType && clicked !== checkboxes[i]) {
+            console.log('yes')
+            if (clicked.checked) {
+                let totalChecked = checkboxType;
+                console.log(totalChecked);
+                console.log('checked yes');
+                checkboxes[i].disabled = true;
+            } else {
+                let totalUnchecked = '';
+                console.log(totalUnchecked);
+                checkboxes[i].disabled = false;
             }
         }
     }
