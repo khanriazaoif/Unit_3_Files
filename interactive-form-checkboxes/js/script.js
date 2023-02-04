@@ -21,7 +21,7 @@
 
 /* Variable to store all the checkboxes - You will use this in the event listener below to create a loop */
 const checkboxes = document.querySelectorAll('.super-stats input');
-// console.log(checkboxes);
+console.log(checkboxes);
 
 /**
  * Event listener for checkboxes
