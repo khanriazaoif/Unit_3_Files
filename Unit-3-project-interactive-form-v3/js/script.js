@@ -87,5 +87,9 @@ document.querySelector('.activities').addEventListener('change', e => {
         totalCostOfActivities -= clickedType;
     }
     console.log(totalCostOfActivities);
-
+    // paragraphActivitiesCost.innerHTML('hell o' );
+    paragraphActivitiesCost.innerHTML = `Total: $${totalCostOfActivities}`;
+    console.log(paragraphActivitiesCost);
 });
+
+
