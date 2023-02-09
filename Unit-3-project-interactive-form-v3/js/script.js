@@ -69,28 +69,23 @@ design.addEventListener('change', () => {
 
 
 const checkboxes = document.querySelectorAll('.activities input');
+const paragraphActivitiesCost = document.querySelector('.activities-cost');
 // console.log(checkboxes);
+// console.log(paragraphActivitiesCost);
+let totalCostOfActivities = 0;
 
 
 document.querySelector('.activities').addEventListener('change', e => {
     const clicked = e.target;
     let clickedType = clicked.getAttribute('data-cost');
-    // console.log(clickedType);
-    for (let i = 0; i < checkboxes.length; i++) {
-        let checkboxType = checkboxes[i].getAttribute('data-cost');
-        if (clickedType === checkboxType && clicked !== checkboxes[i]) {
-            console.log('yes')
-            if (clicked.checked) {
-                let totalChecked = checkboxType;
-                console.log(totalChecked);
-                console.log('checked yes');
-                checkboxes[i].disabled = true;
-            } else {
-                let totalUnchecked = '';
-                console.log(totalUnchecked);
-                checkboxes[i].disabled = false;
-            }
-        }
+    clickedType = Number(clickedType);
+    // console.log(typeof (clickedType));
+    if (clicked.checked) {
+        totalCostOfActivities += clickedType;
     }
+    if (clicked.checked === false) {
+        totalCostOfActivities -= clickedType;
+    }
+    console.log(totalCostOfActivities);
 
 });
