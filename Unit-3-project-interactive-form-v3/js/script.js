@@ -5,6 +5,10 @@ const color = document.getElementById('color');
 const design = document.getElementById('design');
 const option = document.querySelectorAll('option');
 const activities = document.getElementById('activities');
+const payment = document.getElementById('payment');
+const creditCard = document.getElementById('credit-card');
+const paypal = document.getElementById('paypal');
+const bitcoin = document.getElementById('bitcoin');
 // console.log(activities);
 // console.log(option);
 // console.log(color);
@@ -28,6 +32,7 @@ design.addEventListener('change', () => {
     design.firstElementChild =
         color.disabled = false;
     let selectedHidden = color.firstElementChild;
+    // console.log(design);
     if (design.value === 'js puns') {
         for (let i = 0; i < option.length; i++) {
             selectTheme.style.display = 'none';
@@ -89,7 +94,32 @@ document.querySelector('.activities').addEventListener('change', e => {
     console.log(totalCostOfActivities);
     // paragraphActivitiesCost.innerHTML('hell o' );
     paragraphActivitiesCost.innerHTML = `Total: $${totalCostOfActivities}`;
-    console.log(paragraphActivitiesCost);
+    // console.log(paragraphActivitiesCost);
+});
+
+console.log(design);
+console.log(payment);
+
+
+paypal.style.display = 'none';
+bitcoin.style.display = 'none';
+
+console.log(payment);
+let creditCardInitial = payment.children
+creditCardInitial = creditCardInitial[1];
+
+creditCardInitial.setAttribute('selected', 'selected');
+console.log(creditCardInitial);
+
+document.getElementById('payment').addEventListener('change', event => {
+    // let matchPaymentOption =
 });
 
 
+//
+// if (payment.value === 'paypal'){
+//     // payment.style.display = 'block';
+//     console.log('credit card yes');
+// } else {
+//     console.log('credit card no');
+// }
