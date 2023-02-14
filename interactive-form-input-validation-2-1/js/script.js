@@ -31,16 +31,23 @@ const nameValidator = () => {
   // 1. Create a variable named `nameValue` to store the `.value` property of the `nameElement` input and log the variable out to the console — console.log("Name value is: ", `"${nameValue}"`);
     // To see the result of this function's log statements, call this `nameValidator()` function in the `submit` handler below, 
     // and then save the file, refresh the page in the browser and click the form's submit button.
+  // console.log(nameElement);
+  const nameValue = nameElement.value;
+  // console.log(nameValue);
+  // console.log(`Name value is ${nameValue}`);
+
 
   // 2. Create a variable named `nameIsValid` to store the test value for this input.
     // Since the name field's requirement is that it can't be blank, that should look something like this:
     // `const nameIsValid = /^[a-zA-Z]+ ?[a-zA-Z]*? ?[a-zA-Z]*?$/.test(nameValue);`.
     // That tests that there is at least a first name containing only letters, and allows for a middle and last name.
     // Log out something like this: console.log(`Name validation test on "${nameValue}" evaluates to ${nameIsValid}`);.
-
+  const nameIsValid = /^[a-zA-Z]+ ?[a-zA-Z]*? ?[a-zA-Z]*?$/.test(nameValue);
+  console.log(`Name validation test on "${nameValue}" evaluates to ${nameIsValid}`);
   // 3. Lastly, return `nameIsValid`.
-
+  return nameIsValid;
 }
+
 
 
 /* Helper function to validate email input */
@@ -108,6 +115,8 @@ form.addEventListener('submit', e => {
 
   // Submit handler test log - Feel free to delete this or comment it out
   console.log('Submit handler is functional!');
+  console.log(nameValidator());
+
 });
 
 
