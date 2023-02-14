@@ -54,7 +54,8 @@ const nameValidator = () => {
 const emailValidator = () => {
 
   // 1. Create a variable named `emailValue` to store the `.value` property of the `emailAddress` input and log the variable out to the console — console.log("Email value is: ", `"${emailValue}"`);
-
+  const emailValue = email.value;
+  console.log("Email value is: ", `"${emailValue}"`);
   // 2. Create a variable named `emailIsValid` to store the test value for this input.
     // Since the email field's requirement is that it should be a validly formatted email address with a `.com` TLD, 
     // the variable should look something like this:
@@ -62,9 +63,10 @@ const emailValidator = () => {
     // That tests that there is a few characters for the username, followed by “@”, followed by a few more characters 
     // and a “.com” for the domain name.
     // Log out something like this: console.log(`Email validation test on "${emailValue}" evaluates to ${emailIsValid}`);.
-
+  const emailIsValid = /^[^@]+@[^@.]+\.[a-z]+$/i.test(emailValue);
+  console.log(`Email validation test on "${emailValue}" evaluates to ${emailIsValid}`);
   // 3. Lastly, return `emailIsValid`.
-
+  return emailIsValid;
 }
 
 
@@ -116,6 +118,7 @@ form.addEventListener('submit', e => {
   // Submit handler test log - Feel free to delete this or comment it out
   console.log('Submit handler is functional!');
   console.log(nameValidator());
+  console.log(emailValidator());
 
 });
 
