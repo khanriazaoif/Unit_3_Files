@@ -97,22 +97,37 @@ document.querySelector('.activities').addEventListener('change', e => {
     // console.log(paragraphActivitiesCost);
 });
 
-console.log(design);
-console.log(payment);
+// console.log(design);
+// console.log(payment);
 
 
 paypal.style.display = 'none';
 bitcoin.style.display = 'none';
 
-console.log(payment);
+// console.log(payment);
 let creditCardInitial = payment.children
 creditCardInitial = creditCardInitial[1];
 
 creditCardInitial.setAttribute('selected', 'selected');
-console.log(creditCardInitial);
+// console.log(creditCardInitial);
 
 document.getElementById('payment').addEventListener('change', event => {
-    // let matchPaymentOption =
+    let target = event.target;
+    if (payment.value === 'credit-card') {
+        creditCard.style.display = 'block';
+        bitcoin.style.display = 'none';
+        paypal.style.display = 'none';
+        console.log('yes');
+    } else if (payment.value === 'paypal') {
+        // let paypal = document.getElementById('payment').value
+        paypal.style.display = 'block';
+        bitcoin.style.display = 'none';
+        creditCard.style.display = 'none';
+    } else if (payment.value === 'bitcoin') {
+        bitcoin.style.display = 'block';
+        paypal.style.display = 'none';
+        creditCard.style.display = 'none';
+    }
 });
 
 
