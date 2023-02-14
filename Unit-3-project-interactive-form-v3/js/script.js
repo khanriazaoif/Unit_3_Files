@@ -9,6 +9,11 @@ const payment = document.getElementById('payment');
 const creditCard = document.getElementById('credit-card');
 const paypal = document.getElementById('paypal');
 const bitcoin = document.getElementById('bitcoin');
+const email = document.getElementById('email');
+const creditCardNumber = document.getElementById('cc-num');
+const zipCode = document.getElementById('zip');
+const cvv = document.getElementById('cvv');
+const form = document.querySelector('form');
 // console.log(activities);
 // console.log(option);
 // console.log(color);
@@ -128,6 +133,13 @@ document.getElementById('payment').addEventListener('change', event => {
         paypal.style.display = 'none';
         creditCard.style.display = 'none';
     }
+});
+
+form.addEventListener("submit", e => {
+    event.preventDefault()
+    const nameValue = nameField.value;
+    const nameIsValid = /^[a-zA-Z]+ ?[a-zA-Z]*? ?[a-zA-Z]*?$/.test(nameValue);
+    console.log(nameIsValid);
 });
 
 
