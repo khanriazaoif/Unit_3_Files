@@ -43,7 +43,7 @@ const nameValidator = () => {
     // That tests that there is at least a first name containing only letters, and allows for a middle and last name.
     // Log out something like this: console.log(`Name validation test on "${nameValue}" evaluates to ${nameIsValid}`);.
   const nameIsValid = /^[a-zA-Z]+ ?[a-zA-Z]*? ?[a-zA-Z]*?$/.test(nameValue);
-  console.log(`Name validation test on "${nameValue}" evaluates to ${nameIsValid}`);
+  // console.log(`Name validation test on "${nameValue}" evaluates to ${nameIsValid}`);
   // 3. Lastly, return `nameIsValid`.
   return nameIsValid;
 }
@@ -55,7 +55,7 @@ const emailValidator = () => {
 
   // 1. Create a variable named `emailValue` to store the `.value` property of the `emailAddress` input and log the variable out to the console — console.log("Email value is: ", `"${emailValue}"`);
   const emailValue = email.value;
-  console.log("Email value is: ", `"${emailValue}"`);
+  // console.log("Email value is: ", `"${emailValue}"`);
   // 2. Create a variable named `emailIsValid` to store the test value for this input.
     // Since the email field's requirement is that it should be a validly formatted email address with a `.com` TLD, 
     // the variable should look something like this:
@@ -64,7 +64,7 @@ const emailValidator = () => {
     // and a “.com” for the domain name.
     // Log out something like this: console.log(`Email validation test on "${emailValue}" evaluates to ${emailIsValid}`);.
   const emailIsValid = /^[^@]+@[^@.]+\.[a-z]+$/i.test(emailValue);
-  console.log(`Email validation test on "${emailValue}" evaluates to ${emailIsValid}`);
+  // console.log(`Email validation test on "${emailValue}" evaluates to ${emailIsValid}`);
   // 3. Lastly, return `emailIsValid`.
   return emailIsValid;
 }
@@ -78,15 +78,17 @@ const languageValidator = () => {
     // `const languageSectionIsValid = languageTotal > 0;`.
     // That tests that the `languageTotal` variable provided for you above equals an integer greater than zero.
     // Log out something like this: `console.log(`Language section validation test evaluates to ${languageSectionIsValid}`);`.
-
+    const languageSectionIsValid = languageTotal > 0;
   // 2. Lastly, return `languageSectionIsValid`.
-
+  return languageSectionIsValid;
 }
 
 
 
 /* Submit listener on the form element */
 form.addEventListener('submit', e => {
+
+
 
   // IMPORTANT NOTE: Firing the submit event will refresh the page and reset the form, erasing your log statements.
     // This can be prevented by calling `e.preventDefault()` here in this submit handler, or
@@ -108,18 +110,29 @@ form.addEventListener('submit', e => {
   // 1. Create an if statement
     // If `(!nameValidator())` call `e.preventDefault();` 
       // And log out a message saying this particular validator prevented submission
-  
+  if (!nameValidator()){
+    e.preventDefault();
+    console.log(`name is not correct`)
+  }
+
+  if (!emailValidator()) {
+    console.log(`email is wrong`);
+
   // 2. Repeat the above step for the rest of your validation functions
 
+  }
 
+  if (!languageValidator()) {
+    console.log(`Select at least one language`);
+  }
   // And feel free to comment out or delete any log statements from the validation functions above
 
 
   // Submit handler test log - Feel free to delete this or comment it out
-  console.log('Submit handler is functional!');
-  console.log(nameValidator());
-  console.log(emailValidator());
-
+  // console.log('Submit handler is functional!');
+  // console.log(nameValidator());
+  // console.log(emailValidator());
+  // console.log(languageValidator());
 });
 
 
