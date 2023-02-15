@@ -14,10 +14,10 @@ const creditCardNumber = document.getElementById('cc-num');
 const zipCode = document.getElementById('zip');
 const cvv = document.getElementById('cvv');
 const form = document.querySelector('form');
-// console.log(activities);
-// console.log(option);
-// console.log(color);
-
+const basicInfo = document.querySelector('.basic-info');
+// console.log(basicInfo);
+const legendElement = basicInfo.firstElementChild;
+console.log(legendElement);
 
 nameField.focus();
 jobRole.style.display = 'none';
@@ -137,9 +137,55 @@ document.getElementById('payment').addEventListener('change', event => {
 
 form.addEventListener("submit", e => {
     event.preventDefault()
-    const nameValue = nameField.value;
-    const nameIsValid = /^[a-zA-Z]+ ?[a-zA-Z]*? ?[a-zA-Z]*?$/.test(nameValue);
-    console.log(nameIsValid);
+
+    function checkName() {
+        const nameValue = nameField.value;
+        const nameIsValid = /^[a-zA-Z]+ ?[a-zA-Z]*? ?[a-zA-Z]*?$/.test(nameValue);
+        if (!nameIsValid) {
+            const p = document.createElement('p');
+            p.className = 'warning';
+            legendElement.insertAdjacentElement("afterend", p);
+            const warning = document.querySelector('.warning')
+            warning.innerHTML = `WARNING no name`;
+            warning.style.color = 'blue';
+            console.log(`name is not valid`);
+            legendElement.style.color = 'blue';
+            // legendElement.innerHTML = `Basic Info (incorrect name field)`;
+        }
+        return nameIsValid;
+    }
+
+    function checkEmail() {
+        const emailValue = email.value;
+        const emailIsValid = /^[^@]+@[^@.]+\.[a-z]+$/i.test(emailValue);
+        if (!emailIsValid) {
+            const p = document.createElement('p');
+            p.className = 'warning';
+            legendElement.insertAdjacentElement("afterend", p);
+            const warning = document.querySelector('.warning')
+            warning.innerHTML = `WARNING no email`;
+            warning.style.color = 'yellow';
+            // const emailWarningParagraph = document.querySelector('warning');
+
+            // console.log(emailWarningParagraph);
+            console.log('email not valid');
+            legendElement.style.color = 'yellow';
+            // legendElement.innerHTML = `Basic Info (incorrect email field)`;
+        }
+    }
+
+    function checkActivities() {
+        // console.log(activities);
+        const checkActivitiesValid = activities > 0;
+        console.log(checkActivitiesValid);
+
+        return checkActivitiesValid;
+    }
+
+
+    checkName();
+    checkEmail();
+    checkActivities();
 });
 
 
