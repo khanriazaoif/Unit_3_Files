@@ -17,7 +17,13 @@ const form = document.querySelector('form');
 const basicInfo = document.querySelector('.basic-info');
 // console.log(basicInfo);
 const legendElement = basicInfo.firstElementChild;
+let languageTotal = 0;
 console.log(legendElement);
+
+// document.querySelector('#activities').addEventListener('change', event => {
+//     (event.target.checked) ? languageTotal++ : languageTotal--;
+// })
+
 
 nameField.focus();
 jobRole.style.display = 'none';
@@ -146,10 +152,10 @@ form.addEventListener("submit", e => {
             p.className = 'warning';
             legendElement.insertAdjacentElement("afterend", p);
             const warning = document.querySelector('.warning')
-            warning.innerHTML = `WARNING no name`;
-            warning.style.color = 'blue';
+            warning.innerHTML = `Please provide your correct name`;
+            warning.style.color = 'red';
             console.log(`name is not valid`);
-            legendElement.style.color = 'blue';
+            legendElement.style.color = 'red';
             // legendElement.innerHTML = `Basic Info (incorrect name field)`;
         }
         return nameIsValid;
@@ -163,13 +169,13 @@ form.addEventListener("submit", e => {
             p.className = 'warning';
             legendElement.insertAdjacentElement("afterend", p);
             const warning = document.querySelector('.warning')
-            warning.innerHTML = `WARNING no email`;
-            warning.style.color = 'yellow';
+            warning.innerHTML = `Please provide a correct email address`;
+            warning.style.color = 'red';
             // const emailWarningParagraph = document.querySelector('warning');
 
             // console.log(emailWarningParagraph);
             console.log('email not valid');
-            legendElement.style.color = 'yellow';
+            legendElement.style.color = 'red';
             // legendElement.innerHTML = `Basic Info (incorrect email field)`;
         }
     }
@@ -182,9 +188,8 @@ form.addEventListener("submit", e => {
         return checkActivitiesValid;
     }
 
-
-    checkName();
     checkEmail();
+    checkName();
     checkActivities();
 });
 
