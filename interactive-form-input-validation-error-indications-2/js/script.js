@@ -94,7 +94,7 @@ const emailValidator = () => {
 
 /* Helper function to validate language section */
 const languageValidator = () => {
-
+    console.log(languageTotal);
     // Tests that the `languageTotal` variable provided for you above equals an integer greater than zero.
     const languageSectionIsValid = languageTotal > 0;
 
