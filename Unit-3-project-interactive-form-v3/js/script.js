@@ -16,9 +16,12 @@ const cvv = document.getElementById('cvv');
 const form = document.querySelector('form');
 const basicInfo = document.querySelector('.basic-info');
 const legendElement = basicInfo.firstElementChild;
-const activitiesBox = document.getElementById('activities-box');
+const activitiesBox = document.querySelector('#activities-box');
+let activitiesTotal = 0;
 
-
+document.querySelector('#activities').addEventListener('change', event => {
+    (event.target.checked) ? activitiesTotal++ : activitiesTotal--;
+});
 
 nameField.focus();
 jobRole.style.display = 'none';
@@ -176,15 +179,38 @@ form.addEventListener("submit", e => {
         }
     }
 
-    function checkActivties() {
-        const activitiesChecked = activities.value;
-        console.log(activitiesChecked);
+    function validationPass(element) {
+        element.parentElement.className = 'valid';
+        element.parentElement.classList.remove('non-valid');
+        element.parentElement.lastElementChild.style.display = 'none';
     }
 
+    function validationFail(element) {
+        element.parentElement.className = 'not-valid';
+        element.parentElement.classList.remove('valid');
+        element.parentElement.lastElementChild.style.display = 'block';
+    }
+
+    function checkActivities() {
+        const activitiesChecked = activitiesTotal > 0;
+        if (activitiesChecked === true) {
+            validationPass(activitiesBox);
+        } else {
+            validationFail(activitiesBox);
+        }
+        return activitiesChecked;
+    }
+
+    console.log(checkActivities());
 
     checkEmail();
     checkName();
-    checkActivties();
+    checkActivities();
+
+    if (!checkActivities()) {
+        console.log('Invalid language total prevented submission');
+        e.preventDefault();
+    }
 });
 
 //
