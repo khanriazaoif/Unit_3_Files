@@ -180,13 +180,13 @@ form.addEventListener("submit", e => {
     }
 
     function validationPass(element) {
-        element.parentElement.className = 'valid';
+        element.parentElement.classList.add('valid');
         element.parentElement.classList.remove('non-valid');
         element.parentElement.lastElementChild.style.display = 'none';
     }
 
     function validationFail(element) {
-        element.parentElement.className = 'not-valid';
+        element.parentElement.classList.add('not-valid');
         element.parentElement.classList.remove('valid');
         element.parentElement.lastElementChild.style.display = 'block';
     }
