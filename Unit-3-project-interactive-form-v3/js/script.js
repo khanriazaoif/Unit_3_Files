@@ -15,14 +15,9 @@ const zipCode = document.getElementById('zip');
 const cvv = document.getElementById('cvv');
 const form = document.querySelector('form');
 const basicInfo = document.querySelector('.basic-info');
-// console.log(basicInfo);
 const legendElement = basicInfo.firstElementChild;
-let languageTotal = 0;
-console.log(legendElement);
+const activitiesBox = document.getElementById('activities-box');
 
-// document.querySelector('#activities').addEventListener('change', event => {
-//     (event.target.checked) ? languageTotal++ : languageTotal--;
-// })
 
 
 nameField.focus();
@@ -163,6 +158,7 @@ form.addEventListener("submit", e => {
 
     function checkEmail() {
         const emailValue = email.value;
+        console.log(emailValue);
         const emailIsValid = /^[^@]+@[^@.]+\.[a-z]+$/i.test(emailValue);
         if (!emailIsValid) {
             const p = document.createElement('p');
@@ -180,24 +176,34 @@ form.addEventListener("submit", e => {
         }
     }
 
-    function checkActivities() {
-        // console.log(activities);
-        const checkActivitiesValid = activities > 0;
-        console.log(checkActivitiesValid);
-
-        return checkActivitiesValid;
+    function checkActivties() {
+        const activitiesChecked = activities.value;
+        console.log(activitiesChecked);
     }
+
 
     checkEmail();
     checkName();
-    checkActivities();
+    checkActivties();
 });
 
-
 //
-// if (payment.value === 'paypal'){
-//     // payment.style.display = 'block';
-//     console.log('credit card yes');
-// } else {
-//     console.log('credit card no');
-// }
+// activities.addEventListener("change", e => {
+//     event.preventDefault()
+//     function checkActivities() {
+//         const target = e.target
+//         console.log(target);
+//         if (checkboxes) {
+//             console.log('you checked a checkbox')
+//         } else {
+//             console.log('you did not');
+//         }
+//         const checkActivitiesValid = checkboxes > 0;
+//         console.log(checkActivitiesValid);
+//
+//         return checkActivitiesValid;
+//     }
+//
+//     checkActivities();
+// });
+
